@@ -1,22 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import 'react-native-gesture-handler';
+import { Image } from 'react-native';
+
+import Home from './Screens/HomeScreen';
+import SettingsScreen from './Screens/SettingsScreen';
+import Cards from './Screens/MyCards';
+import Stats from './Screens/Statistics';
+
+
+const Tab = createBottomTabNavigator();
+
+
+const MyCardsScreen = () => (
+  <View style={styles.screen}><Text>My Cards</Text></View>
+);
+
+const StatisticsScreen = () => (
+  <View style={styles.screen}><Text>Statistics</Text></View>
+);
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    
+
+<NavigationContainer>
 
 
+<Tab.Navigator>
+
+<Tab.Screen  name="Home" component={Home} />
+
+<Tab.Screen name="My Cards"  component={Cards} />
+
+<Tab.Screen name="Statistics" component={Stats} />
+
+<Tab.Screen name="Settings" component={SettingsScreen} />
+
+</Tab.Navigator>
+
+      
+
+
+
+    </NavigationContainer>
+   
+     
+
+);
+
+    
+    
+   
+  
+};
